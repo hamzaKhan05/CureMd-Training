@@ -1,0 +1,152 @@
+1) Write a program that takes two numbers as input and prints their sum.
+PROGRAM Sum:
+ READ num1;
+ READ num2;
+ Sum = 0;
+ Sum = num1 + num2;
+ Print Sum;
+END
+
+2) Write a program that prints all even numbers from 1 to 100.
+PROGRAM AllEvenPrint:
+ EvenNo = 1;
+ while (EvenNo <= 100)
+  Do if (EvenNo % 2 == 0)
+  Print EvenNo;
+  ENDIf
+  EvenNo = EvenNo + 1; 
+ ENDWhile
+END
+
+3) Write a function that checks if a given year is a leap year or not.
+PROGRAM LeapYearCheck:
+ READ year;
+  function CheckLeapYear(year):
+  if (year % 4 == 0) AND (year % 100 != 0) // if year is divisible by 4 then it has to not be divisible by 100 to be a leap year.
+   Print Year " is a Leap Year";
+  else if (year % 100 == 0) AND (year % 400 == 0) // if it is divisible by 100 too then it must be divisible by 400 as well to be leap.
+   Print Year " is a Leap Year";
+  else
+   Print Year " is not a Leap Year"
+  ENDIf
+ CheckLeapYear(year); //calling function here to check if it is leap year or not!
+END
+
+4) Write a program that converts kilometers per hours into miles per hour. 
+PROGRAM KphToMph:
+ READ kphValue;
+ MphValue;
+ MphValue = KphValue * 0.621371;
+END
+
+5) Write a pseudo code to check whether a number is a buzz number or not. 
+PROGRAM CheckIfBuzzNo:
+ READ Num;
+ if (Num < 10) AND (Num == 7)
+  Print Num " is a Buzz Number."
+ else if (Num / 7 == 0) OR (Num % 10 == 7)
+  Print Num " is a Buzz Number."
+ else
+  Print Num " is not a Buzz Number."
+ ENDIf
+END
+
+6) Write a program that asks a user for number and prints the multiplication table of that number up to 10. 
+PROGRAM TableOfNum:
+ Read Num;
+ counter = 1;
+ TableNo;
+ while (counter <= 10)
+  Do TableNo = Num * counter;
+  Print TableNo; //prints the Table of Num 10 times.
+  counter = counter + 1;
+ ENDWhile
+END
+
+7) Write a program that computes factorial of a number (n!). 
+PROGRAM Factorial:
+ Read Num;
+ FactorialOfNum;
+ Counter = 1;
+ if (Num == 1) OR (Num == 0) // as factorial of 0 and 1 both are 1.
+  Print "Factorial of " Num " is 1";
+ else 
+  for (Counter = 1; Counter <= Num) // loop terminates after we multiply factorial with all the numbers including the Number itself
+   FactorialOfNum = FactorialOfNum * Counter;
+   Counter = Counter + 1;
+   Print "Factorial of " Num " is: " FactorialOfNum;
+ ENDIf
+END
+
+8) Write a function that computes whether a number is prime or not.
+PROGRAM CheckPrime:
+ READ Num;
+ Temp;
+ Counter = 2;
+  function CheckIfPrime(Num):
+   Temp = Num /2;
+   while (Counter <= Temp) 
+    Do if (Num % Counter == 0)
+     Print Num " is not a Prime Number."
+    else
+     Counter = Counter + 1;
+   Print Num " is a Prime Number."
+ CheckIfPrime(Num); //calling function while passing Number to it here to check if it is prime or not!
+END
+
+9) Write a program that checks if a triangle is scalene, equilateral or isosceles.
+PROGRAM CheckTraingle:
+ Read Side1;
+ Read Side2;
+ Read Side3;
+ if (Side1 == Side2) AND (Side1 == Side3)
+  Print "Triangle is Equilateral!";
+ else if (Side1 == Side2) OR (Side1 == Side3) OR (Side2 == Side3)
+  Print "Triangle is Isosceles!";
+ else
+  Print "Triangle is Scalene!";
+ EndIf
+END
+
+10) Print Pattern:
+*
+**
+***
+****
+*****
+
+PROGRAM PatternLoops:
+ Pattern = *;
+ for (i = 1; i <= 5; i++)
+  for (j = 1; j <= i; j++)
+   Print Pattern; 
+  Endline to Next Row to Print New Row;
+END
+
+PROGRAM PatternPrints:
+ Print "*"
+ Print "**"
+ Print "***"
+ Print "****"
+ Print "*****"
+END
+
+BONUS: Write a function that checks whether a number is a palindrome or not.
+PROGRAM CheckPalindrome:
+ Read Num;
+ Reverse = 0;
+ Temp = Num;
+ LastDigit;
+ function CheckIfPalindrome(Num):
+  while ( Num > 0 ) // loop iterates till number becomes zero and comes out of the loop.
+   LastDigit = Num % 10;
+   Reverse = Reverse * 10 + LastDigit;
+   Num = Num / 10; // to decrease the digits from the last everytime to make it 0.
+  EndWhile
+  if ( Reverse == Temp)
+   Print "It is a palindrome number.";
+  EndIf
+END
+
+
+
