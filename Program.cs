@@ -8,19 +8,23 @@ namespace LibraryManagementSystem
     {
         static void Main(string[] args)
         {
-            Library library = new Library("Lahore Library", 1, new Librarian("Arshad", 28, 1995, 5583));
+            Library library = new Library("Lahore-Library", 1, new Librarian("Arshad", 28, 1995, 5583));
 
             // book instances
-            FictionBook book1 = new FictionBook("Abdullah", "Hashim Nadeem", 1, "Philosophy");
-            FictionBook book2 = new FictionBook("Humsafar", "Farhat Ishtiaq", 2, "Romance");
+            NonFictionBook book1 = new NonFictionBook("Abdullah", "Hashim Nadeem", 1, "Philosophy");
+            NonFictionBook book2 = new NonFictionBook("Humsafar", "Farhat Ishtiaq", 2, "Romance");
             NonFictionBook book3 = new NonFictionBook("Raja Gidh", "Bano Apa", 3, "Philosophy");
             NonFictionBook book4 = new NonFictionBook("Ak Din", "Bano Apa", 4, "History");
+            FictionBook book5 = new FictionBook("Frankenstein", "Mary Shelley", 5, "frame-story");
+
 
             //  books to be added into the library
             library.AddBook(book1);
             library.AddBook(book2);
             library.AddBook(book3);
             library.AddBook(book4);
+            library.AddBook(book5);
+
 
             //  books in the library to be viewed
             Console.WriteLine("All Books in the library are:");
@@ -36,12 +40,12 @@ namespace LibraryManagementSystem
             Console.WriteLine("-----------------------------------");
 
             // Searching for a book by  Its Name
-            Console.WriteLine("Search for a book by title 'Raja Gidh':");
+            Console.WriteLine("Search for a book by name/title 'Raja Gidh':");
             library.SearchBook("Raja Gidh");
             Console.WriteLine("-----------------------------------");
 
             // Issuing a book to a user named Hamza with age and ID as his DOB
-            Person user = new Person("Hamza", 22, 2002);
+            Person user = new Person("Hamza", 22, 2002); //instance of person class 
             library.Librarian.IssueBook(book1, user);
             library.Librarian.IssueBook(book3, user);
 
@@ -57,6 +61,9 @@ namespace LibraryManagementSystem
             Console.WriteLine("Issued books after return:");
             library.ListIssuedBooks();
             Console.WriteLine("-----------------------------------");
+
+            Console.WriteLine("Press Enter to exit.");
+            Console.ReadLine();
         }
     }
 
@@ -197,7 +204,7 @@ namespace LibraryManagementSystem
             if (bookToRemove != null)
             {
                 Books.Remove(bookToRemove);
-                Console.WriteLine($"Book '{bookToRemove.Title}' removed from the library.");
+                Console.WriteLine($"Book named: '{bookToRemove.Title}' removed from the library.");
             }
             else
             {
