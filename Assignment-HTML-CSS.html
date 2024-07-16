@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>My Online Bookstore</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #FF6347;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+}
+
+section {
+    padding: 30px;
+    margin: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #FF6347;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 5px solid #FF6347;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 2px solid #FF6347;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #FF6347;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label, form input, form textarea {
+    margin: 10px 0;
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+    padding: 15px;
+    border: 2px solid #FF6347;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6347;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #FFD700;
+}
+
+footer {
+    background-color: #FF6347;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Online Bookstore</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section>
+        <h2>Featured Books</h2>
+        <img src="book-cover.jpg" alt="Book Cover">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+    </section>
+    
+    <section>
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae odio ultricies ullamcorper.</p>
+        <p>Mauris hendrerit, sem in viverra venenatis, nunc est venenatis orci, ac malesuada purus odio nec lorem.</p>
+    </section>
+    
+    <section>
+        <h2>Customer Reviews</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae odio ultricies ullamcorper.</p>
+        <p>Mauris hendrerit, sem in viverra venenatis, nunc est venenatis orci, ac malesuada purus odio nec lorem.</p>
+    </section>
+    
+    <section>
+        <h2>Book List</h2>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Abdullah</td>
+                <td>Hashim Nadeem</td>
+                <td>5000pkr</td>
+            </tr>
+            <tr>
+                <td>Humsafar</td>
+                <td>Bano Apa</td>
+                <td>4000pkr</td>
+            </tr>
+            <tr>
+                <td>Ak din</td>
+                <td>Hashim Nadeem</td>
+                <td>3000pkr</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section>
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    
+    <footer>
+        <p>© 2024 My Online Bookstore</p>
+    </footer>
+</body>
+</html>
