@@ -1,0 +1,312 @@
+//LongestConsecutive
+
+using System;
+using System.Collections.Generic;
+
+class Solution
+{
+    public int LongestConsecutive(int[] num)
+    {
+	int result = 0;
+        HashSet<int> set = new HashSet<int>();
+
+        if (num == null || num.Length == 0)
+	{
+	return 0;
+	}
+        foreach (int n in num)
+	{
+	set.Add(n);
+	}
+        
+        for (int i = 0; i < num.Length; i++)
+        {
+            int temp = 1;
+            if (!set.Contains(num[i] - 1))
+            {
+                while (set.Contains(++num[i]))
+                {
+                    temp++;
+                }
+            }
+            result = Math.Max(temp, result);
+        }
+        return result;
+    }
+}
+
+
+//String Scramble
+
+
+using System;
+using System.Collections.Generic;
+
+class Solution
+{
+    public static bool StringScramble(string str1, string str2)
+    {
+        List<char> Myarr = new List<char>();
+        for (int i = 0; i < str2.Length; i++)
+        {
+            for (int j = 0; j < str1.Length; j++)
+            {
+                if (str1[j] == str2[i])
+                {
+                    Myarr.Add(str1[j]);
+                }
+            }
+        }
+        string result = new string(Myarr.ToArray());
+        if (result == str2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+//StockPicker
+
+using System;
+
+class Solution
+{
+    public static int StockPicker(int[] arr)
+    {
+	int MaximumCost = 0;
+        int cost = 0;
+        int mini = arr[0]; //first element to start with
+        for (int i = 0; i < arr.Length; i++)
+        {
+            mini = Math.Min(mini, arr[i]);
+            cost = arr[i] - mini;
+            MaximumCost = Math.Max(MaximumCost, cost);
+        }
+
+        return maxcost > 0 ? maxcost : -1;
+    }
+}
+
+// MatchingCharacters
+
+using System;
+
+class Solution
+{
+    public static int MatchingCharacters(string str)
+    {
+        int found = 0;
+        for (int x = 0; x < str.Length; x++)
+        {
+            char temp = str[x];
+            int start = x;
+            int end = start;
+
+            for (int y = x + 1; y < str.Length; y++)
+            {
+                if (str[y] == temp)
+                {
+                    end = y;
+                }
+            }
+
+            string AlluniqueValues = "";
+            for (int z = start + 1; z < end; z++)
+            {
+                if (AlluniqueValues.IndexOf(str[z]) == -1)
+                {
+                    AlluniqueValues += str[z];
+                }
+            }
+
+            if (AlluniqueValues.Length > found)
+            {
+                found = AlluniqueValues.Length;
+            }
+        }
+
+        return found;
+    }
+}
+
+//ArrayJumping
+
+using System;
+using System.Collections.Generic;
+
+class Solution
+{
+    public static int ArrayJumping(int[] arr)
+    {
+        Dictionary<int, (int, int)> ht = new Dictionary<int, (int, int)>();
+        int max_index = Array.IndexOf(arr, Max(arr));
+        int L = arr.Length;
+
+        for (int i = 0; i < L; i++)
+        {
+            ht[i] = (Left(L, i, arr[i]), Right(L, i, arr[i]));
+        }
+
+        if (ht[max_index].Item1 == max_index || ht[max_index].Item2 == max_index)
+        {
+            return 1;
+        }
+
+        HashSet<int> travel_set = new HashSet<int> { ht[max_index].Item1, ht[max_index].Item2 };
+
+        for (int step = 2; step <= L; step++)
+        {
+            HashSet<int> new_set = new HashSet<int>();
+            foreach (int val in travel_set)
+            {
+                new_set.Add(ht[val].Item1);
+                new_set.Add(ht[val].Item2);
+            }
+            travel_set.UnionWith(new_set);
+
+            if (travel_set.Contains(max_index))
+            {
+                return step;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int Max(int[] arr)
+    {
+        int max = arr[0];
+        foreach (int num in arr)
+        {
+            if (num > max)
+            {
+                max = num;
+            }
+        }
+        return max;
+    }
+
+    public static int Left(int length, int index, int number)
+    {
+        int left = number % length;
+        if (left > index)
+        {
+            left = length + index - left;
+        }
+        else
+        {
+            left = index - left;
+        }
+        return left;
+    }
+
+    public static int Right(int length, int index, int number)
+    {
+        int right = number % length;
+        if (right > length - index - 1)
+        {
+            right = right + index - length;
+        }
+        else
+        {
+            right = right + index;
+        }
+        return right;
+    }
+}
+
+//PalindromeTwo
+using System;
+using System.Collections.Generic;
+
+class Solution
+{
+    public static bool PalindromeTwo(string str)
+    {
+        List<char> Myarr = new List<char>();
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (char.IsLetter(str[i]))
+            {
+                Myarr.Add(char.ToLower(str[i]));
+            }
+        }
+
+        string temp = new string(Myarr.ToArray());
+        Myarr.Reverse();
+        string reversed = new string(Myarr.ToArray());
+
+        if (temp == reversed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+
+
+//FormattedNumber
+
+using System;
+
+class Solution
+{
+    public static bool FormattedNumber(string strArr)
+    {
+        string str = strArr[0];
+        int len = str.Length;
+
+        int decimalCount = 0;
+        for (int i = 0; i < len; i++)
+        {
+            char ch = str[i];
+            if (!char.IsDigit(ch) && ch != ',' && ch != '.')
+            {
+                return false;
+            }
+            if (ch == '.')
+            {
+                decimalCount++;
+                if (decimalCount > 1)
+                {
+                    return false;
+                }
+            }
+        }
+
+        string[] parts = str.Split('.');
+        string integerPart = parts[0];
+        string fractionalPart = parts.Length > 1 ? parts[1] : "";
+
+        string[] integerSections = integerPart.Split(',');
+        for (int i = 0; i < integerSections.Length; i++)
+        {
+            if (i == 0)
+            {
+                if (integerSections[i].Length > 3)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (integerSections[i].Length != 3)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+}
+
